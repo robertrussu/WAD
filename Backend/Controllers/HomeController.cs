@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WAD.Models;
+using WAD.Backend.Models;
 
-namespace WAD.Controllers
+namespace WAD.Backend.Controllers
 {
     public class HomeController : Controller
     {

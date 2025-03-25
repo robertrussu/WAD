@@ -1,4 +1,4 @@
-namespace WAD.Models
+namespace WAD.Backend.Models
 {
     public class ErrorViewModel
     {
