@@ -9,7 +9,7 @@ This project is a web-based **Car Service Management System** that allows custom
 - Schedule maintenance appointments
 - Live chat with mechanics
 - Retrieve vehicle details via VIN lookup API
-
+ 
 ### **Admin Features**
 - Manage service schedules
 - Track and update parts inventory
