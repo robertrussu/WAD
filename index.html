@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Low-Level Design - Car Service App</title>
+</head>
+<body>
+    <h1>Low-Level Design: Car Service Management System</h1>
+
+    <h2>Modules & Relationships</h2>
+    <pre>
++---------------------+       +----------------------+
+|  Customer UI (Razor)|<----->|  Web API (ASP.NET)   |
++---------------------+       +----------+-----------+
+                                       | 
+                                       |
+                            +----------v-----------+
+                            |  Chat Module         |
+                            +----------------------+
+                            |  Scheduler Module    |
+                            +----------------------+
+                            |  Inventory Manager   |
+                            +----------+-----------+
+                                       |
+                +----------------------+------------------+
+                |                                         |
+    +-----------v----------+              +---------------v---------------+
+    | External VIN Decoder |              |   Database (PostgreSQL)       |
+    |     (3rd-party API)  |              | Users, Cars, Schedule, Chat   |
+    +----------------------+              +-------------------------------+
+
+                     +--------------------+
+                     |  Admin UI (Razor)  |
+                     +--------------------+
+                              |
+                              |
+                   +----------v-----------+
+                   |  Admin Access to     |
+                   |  Inventory, Schedule |
+                   +----------------------+
+    </pre>
+
+    <h2>Key Modules</h2>
+    <ul>
+        <li><strong>Customer UI:</strong> Razor Pages for login, scheduling, chat</li>
+        <li><strong>Admin UI:</strong> Razor Pages for inventory & appointment management</li>
+        <li><strong>ASP.NET Web API:</strong> Core logic, routing between components</li>
+        <li><strong>Chat Module:</strong> Real-time or simulated communication between user and mechanic</li>
+        <li><strong>Scheduler Module:</strong> Handles time slots and appointments</li>
+        <li><strong>Inventory Manager:</strong> Tracks available parts and stock</li>
+        <li><strong>VIN API Integration:</strong> External call to fetch car specs by VIN</li>
+        <li><strong>PostgreSQL DB:</strong> Persistent storage for users, cars, chats, and schedules</li>
+    </ul>
+
+    <h2>Design Patterns</h2>
+    <ul>
+        <li><strong>Repository Pattern:</strong> Abstraction of DB access</li>
+        <li><strong>DTO Pattern:</strong> Used for secure data transfer</li>
+        <li><strong>Dependency Injection:</strong> Services injected where needed</li>
+        <li><strong>MVC Pattern:</strong> Used for the UI and API layers</li>
+    </ul>
+
+    <h2>Sample Flow</h2>
+    <ol>
+        <li>User logs in via Customer UI</li>
+        <li>Schedules a service via Scheduler Module</li>
+        <li>Inputs VIN → API calls external decoder</li>
+        <li>Chat with mechanic module</li>
+        <li>Admin logs in via Admin UI</li>
+        <li>Manages appointments and inventory</li>
+    </ol>
+</body>
+</html>
